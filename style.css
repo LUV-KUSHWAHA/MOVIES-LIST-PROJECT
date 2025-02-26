@@ -1,0 +1,275 @@
+/* General Reset and Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: rgb(4, 52, 92);
+    color: black;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #d46408;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+/* Hero Section */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ccda14;
+    color: white;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header p {
+    font-size: 1.25rem;
+}
+
+/* Hero Section Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Search Bar with Burning Effect */
+.search-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 500px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container input:focus {
+    border: 2px solid #f44336; /* Fire red */
+    animation: burningEffect 0.6s infinite alternate;
+    box-shadow: 0 0 10px rgba(244, 67, 54, 0.8);
+}
+
+@keyframes burningEffect {
+    0% {
+        box-shadow: 0 0 10px rgba(244, 67, 54, 0.8), 0 0 20px rgba(244, 67, 54, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(244, 67, 54, 1), 0 0 40px rgba(244, 67, 54, 0.8);
+    }
+}
+
+/* Table Styling */
+.table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #5e4caf;
+    color: white;
+    cursor: pointer;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+table th:hover {
+    background-color: #d3086e;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Form Styling */
+.form-container {
+    background-color: white;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-container form input, .form-container form textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.form-container form button {
+    grid-column: span 2;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container form button:hover {
+    background-color: #45a049;
+}
+
+/* About Section */
+#about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+    padding: 40px;
+    background-color: #f4f4f9;
+    border-top: 5px solid #4caf50;
+}
+
+.about-text {
+    width: 50%;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.about-image {
+    width: 40%;
+    text-align: center;
+}
+
+.about-image img {
+    width: 80%;
+    border-radius: 8px;
+}
+
+.image-caption {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .form-container form {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container input {
+        width: 100%;
+    }
+
+    table th, table td {
+        font-size: 12px;
+    }
+}
