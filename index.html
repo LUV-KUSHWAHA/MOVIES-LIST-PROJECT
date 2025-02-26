@@ -1,2 +1,86 @@
-hello
-g
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <h1>Simple Movies List</h1>
+            <p>Track movie recommendation from users.</p>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search by movie name" >
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-container">
+        <table id="movie-table">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Name of Movie</th>
+                    <th onclick="sortTable(1)">Movie Rating(Out of ten)</th>
+                    <th >Remarks</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Dynamic rows will be added here -->
+                 <tr>
+                    <td>Fight Club</td>
+                    <td>8</td>
+                    <td>Almost perfection</td>
+                 </tr>
+                 <tr>
+                    <td>Predestination</td>
+                    <td>7</td>
+                    <td>Old is Gold</td>
+                 </tr>
+                 <tr>
+                    <td>Avatar(Blue Alien)</td>
+                    <td>9</td>
+                    <td>Cinematic Brilliance</td>
+                 </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Form Section to Add New Movies -->
+    <div class="form-container">
+        <h2>Add New Movie Record</h2>
+        <form id="movie-form">
+            <input type="text" id="name of movie" placeholder="Name Of Movie" required>
+            <input type="text" id="rating" placeholder="Enter Rating" required>
+            <textarea id="remarks" placeholder="Remarks" required></textarea>
+            <button type="submit">Add To List</button>
+        </form>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-text">
+            <h2>About The System</h2>
+            <p>This system provides a simple and effective way to evaluate movies. You can manage names, ratings, and other remarks to access movie.</p>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer>
+        <p>&copy; 2025 Movie Listing System | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
