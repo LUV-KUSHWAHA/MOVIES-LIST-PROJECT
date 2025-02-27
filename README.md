@@ -1,6 +1,8 @@
 # Simple-Movie-Recommendation
-DSA Project 4th semester
-By:
+**DSA Project 4th semester**
+**By:**
 Sugam Sen Sinjali
+<br>
 Sulav Karki
-Santosh Kushawaha
+<br>
+Santosh Kushwaha
