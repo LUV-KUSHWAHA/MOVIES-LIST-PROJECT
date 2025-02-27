@@ -4,19 +4,20 @@ function sortTable(columnIndex) {
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
 
-    // Determine the sorting order (ascending or descending)
-    const isAscending = tbody.getAttribute("data-sort-order") === "asc";
-    tbody.setAttribute("data-sort-order", isAscending ? "desc" : "asc");
+    // Get the current sorting order and toggle it
+    const currentOrder = tbody.getAttribute("data-sort-order");
+    const newOrder = currentOrder === "asc" ? "desc" : "asc";
+    tbody.setAttribute("data-sort-order", newOrder);
 
     // Sort rows based on the column content
     rows.sort((rowA, rowB) => {
         const cellA = rowA.querySelectorAll("td")[columnIndex].textContent.trim();
         const cellB = rowB.querySelectorAll("td")[columnIndex].textContent.trim();
 
-        if (columnIndex === 1) { // For numeric sorting (rating column)
-            return isAscending ? cellA - cellB : cellB - cellA;
-        } else { // For string sorting (name and remarks columns)
-            return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+        if (columnIndex === 1) { // Numeric sorting for rating
+            return newOrder === "asc" ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
+        } else { // String sorting for movie name and remarks
+            return newOrder === "asc" ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
         }
     });
 
@@ -27,7 +28,7 @@ function sortTable(columnIndex) {
 
 // Add New Movie Functionality
 document.getElementById("movie-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
     // Get form values
     const name = document.getElementById("name-of-movie").value.trim();
@@ -51,10 +52,16 @@ document.getElementById("movie-form").addEventListener("submit", function (event
         <td>${name}</td>
         <td>${rating}</td>
         <td>${remarks}</td>
+        <td><button class="delete-btn">Delete</button></td>
     `;
 
-    // Add the new row to the table
+    // Append row to table
     document.getElementById("table-body").appendChild(newRow);
+
+    // Attach delete event listener to the new button
+    newRow.querySelector(".delete-btn").addEventListener("click", function () {
+        newRow.remove();
+    });
 
     // Clear the form
     document.getElementById("movie-form").reset();
@@ -67,10 +74,13 @@ document.getElementById("search-bar").addEventListener("input", function () {
 
     rows.forEach(row => {
         const movieName = row.querySelector("td").textContent.toLowerCase();
-        if (movieName.includes(searchQuery)) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
+        row.style.display = movieName.includes(searchQuery) ? "" : "none";
+    });
+});
+
+// Delete Functionality for Existing Movies
+document.querySelectorAll(".delete-btn").forEach(button => {
+    button.addEventListener("click", function () {
+        this.parentElement.parentElement.remove();
     });
 });
